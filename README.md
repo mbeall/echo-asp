@@ -5,6 +5,7 @@ The ASP code for the ASP version of the project
 
 ### Visual Studio Configuration
 Before working on any code, make sure to configure Visual Studio, by doing the following:
+
 1. Open Visual Studio and open website, pointing to the `echo-asp` folder.
 2. Go to Tools -> Options...
 3. Under Text Editor -> General, make sure "Line numbers" is checked.
