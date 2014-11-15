@@ -9,7 +9,7 @@ public partial class edit_ticket : System.Web.UI.Page
 {
   private static ObjectDataSource edb = new ObjectDataSource("TicketDBTableAdapters.ticketsTableAdapter","get_ticket");
 
-  public int tkt_id_PK = DataListItem
+  public int tkt_id_PK;
   public string tkt_name;
   public string tkt_desc;
   public string tkt_created;
