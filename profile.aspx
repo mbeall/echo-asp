@@ -7,16 +7,17 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="entry_title" Runat="Server">Profile
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="entry_content" Runat="Server">
-<%--<h2><?php echo "$mod_login_name"; ?></h2>
-<p><strong>Name</strong>: <?php echo "$mod_first $mod_last"; ?></p>
-<p><strong>Email</strong>: <?php echo "$mod_email"; ?></p>
+<h2><%# Eval("mod_login_name") %></h2>
+<p><strong>First Name</strong>: <%# Eval("get_mod_first") %></p>
+<p><strong>Last Name</strong>: <%# Eval("get_mod_last") %></p>
+<p><strong>Email</strong>: <%# Eval("get_mod_email") %></p>
 
 
-<form method="post" action="edit-profile.php">
+<form method="post" action="edit-profile.aspx">
   <p>
-    <input type="hidden" name="profile" value="<?php echo $moderator->mod_id_PK; ?>">
+    <input type="hidden" name="profile" value="$moderator->mod_id_PK">
     <input class="btn btn-default" type="submit"  value="Edit Profile" name="edit-profile" />
   </p>
-</form>--%>
+</form>
 </asp:Content>
 
