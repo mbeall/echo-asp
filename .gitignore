@@ -1,3 +1,5 @@
 .smbdelete*
 test*
 *:Zone.Identifier
+echo.sln
+echo.v11.suo
