@@ -8,8 +8,8 @@ Before working on any code, make sure to configure Visual Studio, by doing the f
 
 1. Open Visual Studio and open website, pointing to the `echo-asp` folder.
 2. Go to Tools -> Options...
-3. Under Text Editor -> General, make sure "Line numbers" is checked.
-4. Under Text Editor -> Tabs, set:
+3. Under Text Editor -> All Languages -> General, make sure "Line numbers" is checked.
+4. Under Text Editor -> All Languages -> Tabs, set:
  - Indenting to Block
  - Tab size to 2
  - Indent size to 2
