@@ -1,15 +1,21 @@
-﻿Echo (ASP) 0.0.0
+Echo (ASP) 0.0.1
 ===
 
 The ASP code for the ASP version of the project
+
+#### Dependencies
+- Bootstrap 3.2.0
+- Canvas (alpha)
+- Flint 1.2.3
+- jQuery 1.2.1
 
 ### Visual Studio Configuration
 Before working on any code, make sure to configure Visual Studio, by doing the following:
 
 1. Open Visual Studio and open website, pointing to the `echo-asp` folder.
 2. Go to Tools -> Options...
-3. Under Text Editor -> General, make sure "Line numbers" is checked.
-4. Under Text Editor -> Tabs, set:
+3. Under Text Editor -> All Languages -> General, make sure "Line numbers" is checked.
+4. Under Text Editor -> All Languages -> Tabs, set:
  - Indenting to Block
  - Tab size to 2
  - Indent size to 2
@@ -43,6 +49,12 @@ Files that don't exist are marked with an asterisk (*)
  - css/canvas.css
  - css/flint.css
  - css/open-sans.css
+- etc
+ - class-e-moderator.txt
+ - class-e-tag.txt
+ - class-e-ticket.txt
+ - class-edb.txt
+ - functions.txt
 - js
  - js/bootstrap.min.js
  - js/jquery-2.1.1.min.js
@@ -53,22 +65,18 @@ Files that don't exist are marked with an asterisk (*)
 - about.aspx.cs
 - browse.aspx
 - browse.aspx.cs
-- class-e-moderator.txt
-- class-e-tag.txt
-- class-e-ticket.txt
-- class-edb.txt
 - contact.aspx
 - contact.aspx.cs
 - create-ticket.aspx
 - create-ticket.aspx.cs
-- echo.sln
 - edit-profile.aspx
 - edit-profile.aspx.cs
 - edit-tag.aspx
 - edit-tag.aspx.cs
 - edit-ticket.aspx
 - edit-ticket.aspx.cs
-- functions.txt
+- echo.sln (ignored)
+- echo.v11.suo (ignored)
 - index.aspx
 - index.aspx.cs
 - LICENSE.md
