@@ -14,6 +14,7 @@
   get_moderator_first
   get_moderator_last
   get_moderator_data--%>
+
 <form role="form" action="profile.aspx" method="post">
   <div class="row">
     <div class="col-md-3">
@@ -31,8 +32,14 @@
   </div>
        </div><!-- .col-md-3-->
     </div><!-- .row -->
-  <!--<asp:Login ID="Login" runat="server" OnAuthenticate="Login_Authenticate"></asp:Login>-->
+  
   <button type="submit" value="Profile" name="profile" class="btn btn-primary">Login</button>
+  <asp:Login ID="Login1" runat="server" />
+  <asp:LoginView ID="LoginView1" runat="server">
+    <LoggedInTemplate>
+      Welcome back!
+    </LoggedInTemplate>
+  </asp:LoginView>
 </form>
 </asp:Content>
 
