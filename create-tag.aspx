@@ -40,10 +40,9 @@
 </div>
     <div class="col-md-6">
       <asp:Repeater ID="Repeater1" runat="server" DataSourceID="ods_tags">
-        <ItemTemplate runat="server">
-        <asp:Label runat="server" style = "forecolor:'<%#  DataBinder.Eval(Container.DataItem, "tag_color"); backcolor:DataBinder.Eval(Container.DataItem, "tag_bg") %>"
-        Text = '<%#DataBinder.Eval(Container.DataItem, "tag_name") %>' />
-        </ItemTemplate>
+      <ItemTemplate>
+        <asp:Label ID="tag_name" runat="server" Text='<%# Eval("tag_name") %>' BackColor='<%# System.Drawing.Color.FromName(Eval("tag_bg").ToString()) %>'></asp:Label>
+      </ItemTemplate>
       </asp:Repeater>
       <asp:ObjectDataSource ID="ods_tags" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="TicketDBTableAdapters.tagsTableAdapter"></asp:ObjectDataSource>
     </div><!--.col-md-6-->
