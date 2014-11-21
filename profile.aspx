@@ -7,17 +7,20 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="entry_title" Runat="Server">Profile
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="entry_content" Runat="Server">
-<h2><%# Eval("mod_login_name") %></h2>
-<p><strong>First Name</strong>: <%# Eval("get_mod_first") %></p>
-<p><strong>Last Name</strong>: <%# Eval("get_mod_last") %></p>
-<p><strong>Email</strong>: <%# Eval("get_mod_email") %></p>
+  <form id="form1" runat="server">
+    <asp:Repeater ID="Repeater1" runat="server">
+      <ItemTemplate>
+        <h2><%# Eval("mod_login_name") %></h2>
+        <p><strong>First Name</strong>: <%# Eval("get_mod_first") %></p>
+        <p><strong>Last Name</strong>: <%# Eval("get_mod_last") %></p>
+        <p><strong>Email</strong>: <%# Eval("get_mod_email") %></p>
+      </ItemTemplate>
+    </asp:Repeater>
 
-
-<form method="post" action="edit-profile.aspx">
   <p>
     <input type="hidden" name="profile" value="$moderator->mod_id_PK">
     <input class="btn btn-default" type="submit"  value="Edit Profile" name="edit-profile" />
   </p>
-</form>
+  </form>
 </asp:Content>
 
