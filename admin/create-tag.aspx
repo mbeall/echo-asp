@@ -10,40 +10,107 @@
     <%--<?php if (is_logged_in()) { ?>--%>
 
 <Form runat="server">
-  <div class="col-md-6" runat="server" id="create_tag_form">
-   <div class="form-group">
-     <asp:Label ID="tag_name_label" runat="server" Text="Tag Name">Tag Name</asp:Label>
-     <asp:TextBox ID="tag_name" cssclass="form-control" runat="server" MaxLength="32"></asp:TextBox>
-     <asp:RequiredFieldValidator ID="tag_name_validator" runat="server" ErrorMessage="Just kidding it's really this one" ControlToValidate="tag_name">
-     </asp:RequiredFieldValidator>
-  </div><!-- .form-group -->
-
-  <div class="form-group">
-     <asp:Label ID="tag_color_label" runat="server" Text="Tag Color"></asp:Label>
-     <div class="input-group">
-      <div class="input-group-addon">#</div>
-        <asp:TextBox ID="tag_color" runat="server" CssClass="form-control" maxlength="6" Text="ffffff" ValidationExpression="[a-fA-F0-9]"></asp:TextBox>
-       <asp:RegularExpressionValidator ID="tag_color_validator" runat="server" ErrorMessage="It's this one" ControlToValidate="tag_color"></asp:RegularExpressionValidator>
-    </div><!-- .input-group -->
-  </div><!-- .form-group -->
- 
-  <div class="form-group">
-      <asp:Label ID="tag_bg_label" runat="server" Text="Tag Background"></asp:Label>
-
-    <div class="input-group">
-      <div class="input-group-addon">#</div>
-        <asp:TextBox ID="tag_bg" runat="server" CssClass="form-control"  maxlength="6" Text="777777"></asp:TextBox>
-        <asp:RegularExpressionValidator ID="tag_bg_validator" runat="server" ErrorMessage="No It's this one" ValidationExpression="[a-fA-F0-9]" ControlToValidate="tag_bg"></asp:RegularExpressionValidator>
-
-    </div><!-- .input-group -->
-  </div><!-- .form-group -->
-
-  <p>
-      <asp:Button ID="submit" runat="server" Text="Submit" CssClass="btn btn-primary"/>
-      <a class="btn btn-default" href="index.php">Cancel</a>
- </p>
-</div>
     <div class="col-md-6">
+        <div class="form-group">
+    <asp:FormView ID="FormView1" runat="server" DataKeyNames="tag_id_PK" DataSourceID="ods_create_tags" DefaultMode="Insert">
+        <EditItemTemplate>
+            tag_id_PK:
+            <asp:Label ID="tag_id_PKLabel1" runat="server" Text='<%# Eval("tag_id_PK") %>' Visible="False" />
+            <br />
+           Tag Name:
+            <asp:TextBox ID="tag_nameTextBox" runat="server" Text='<%# Bind("tag_name") %>' ControlStyle-CssClass="form-control" />
+            <br />
+            Tag Color:
+            <asp:TextBox ID="tag_colorTextBox" runat="server" Text='<%# Bind("tag_color") %>' ControlStyle-CssClass="form-control" />
+            <br />
+            Tag Background:
+            <asp:TextBox ID="tag_bgTextBox" runat="server" Text='<%# Bind("tag_bg") %>' ControlStyle-CssClass="form-control"/>
+            <br />
+            <asp:LinkButton ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Update" class="btn btn-primary"/>
+            &nbsp;<asp:LinkButton ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" class="btn btn-primary"/>
+        </EditItemTemplate>
+        <InsertItemTemplate>
+            Tag Name:
+            <asp:TextBox ID="tag_nameTextBox" runat="server" Text='<%# Bind("tag_name") %>'  ControlStyle-CssClass="form-control"/>
+            <br />
+            Tag Color:
+            <asp:TextBox ID="tag_colorTextBox" runat="server" Text='<%# Bind("tag_color") %>' ControlStyle-CssClass="form-control"/>
+            <br />
+            Tag Background:
+            <asp:TextBox ID="tag_bgTextBox" runat="server" Text='<%# Bind("tag_bg") %>' ControlStyle-CssClass="form-control"/>
+            <br />
+            <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insert" class="btn btn-primary"/>
+            &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" class="btn btn-primary"/>
+        </InsertItemTemplate>
+        <ItemTemplate>
+            tag_id_PK:
+            <asp:Label ID="tag_id_PKLabel" runat="server" Text='<%# Eval("tag_id_PK") %>' Visible="False"/>
+            <br />
+            Tag Name:
+            <asp:Label ID="tag_nameLabel" runat="server" Text='<%# Bind("tag_name") %>' ControlStyle-CssClass="form-control"/>
+            <br />
+            Tag Color:
+            <asp:Label ID="tag_colorLabel" runat="server" Text='<%# Bind("tag_color") %>' ControlStyle-CssClass="form-control"/>
+            <br />
+            Tag Background:
+            <asp:Label ID="tag_bgLabel" runat="server" Text='<%# Bind("tag_bg") %>' ControlStyle-CssClass="form-control"/>
+            <br />
+            <asp:LinkButton ID="EditButton" runat="server" CausesValidation="False" CommandName="Edit" Text="Edit" class="btn btn-primary"/>
+            &nbsp;<asp:LinkButton ID="NewButton" runat="server" CausesValidation="False" CommandName="New" Text="New" class="btn btn-primary"/>
+        </ItemTemplate>
+    </asp:FormView>
+    <asp:ObjectDataSource ID="ods_create_tags" runat="server" InsertMethod="create_tag" OldValuesParameterFormatString="original_{0}" SelectMethod="get_tag" TypeName="TicketDBTableAdapters.tagsTableAdapter" UpdateMethod="update_tag">
+        <InsertParameters>
+            <asp:Parameter Name="tag_name" Type="String" />
+            <asp:Parameter Name="tag_color" Type="String" />
+            <asp:Parameter Name="tag_bg" Type="String" />
+        </InsertParameters>
+        <SelectParameters>
+            <asp:QueryStringParameter Name="tag_id" QueryStringField="tag_id_pk" Type="Int32" />
+        </SelectParameters>
+        <UpdateParameters>
+            <asp:Parameter Name="tag_name" Type="String" />
+            <asp:Parameter Name="tag_color" Type="String" />
+            <asp:Parameter Name="tag_bg" Type="String" />
+            <asp:Parameter Name="Original_tag_id_PK" Type="Int32" />
+        </UpdateParameters>
+    </asp:ObjectDataSource>
+    </div>
+  </div>
+
+<%--    <div class="col-md-6">  
+        <div class="form-group">       
+        <asp:DetailsView ID="DetailsView1" runat="server" Height="50px" Width="125px" AutoGenerateRows="False" DataKeyNames="tag_id_PK" DataSourceID="ods_create_tags" BorderColor="Black" BorderStyle="None" CssClass="form-group" DefaultMode="Insert" GridLines="None">
+              <Fields>
+                  <asp:BoundField DataField="tag_id_PK" HeaderText="tag_id_PK" InsertVisible="False" ReadOnly="True" SortExpression="tag_id_PK" />
+                  <asp:BoundField DataField="tag_name" HeaderText="Tag Name" SortExpression="tag_name" ControlStyle-CssClass="form-control"/>
+                  <asp:BoundField DataField="tag_color" HeaderText="Tag Color" SortExpression="tag_color" 
+                      ControlStyle-CssClass="form-control"/>
+                  <asp:BoundField DataField="tag_bg" HeaderText="Tag Background" SortExpression="tag_bg" 
+                     />
+                  <asp:CommandField ShowEditButton="True" ShowInsertButton="True" controlstyle-cssClass="btn btn-primary"/>
+            </Fields>
+              <RowStyle BorderStyle="None" />
+        </asp:DetailsView>
+        <asp:ObjectDataSource ID="ods_create_tags" runat="server" InsertMethod="create_tag" OldValuesParameterFormatString="original_{0}" SelectMethod="get_tag" TypeName="TicketDBTableAdapters.tagsTableAdapter" UpdateMethod="update_tag">
+            <InsertParameters>
+                <asp:Parameter Name="tag_name" Type="String" />
+                <asp:Parameter Name="tag_color" Type="String" />
+                <asp:Parameter Name="tag_bg" Type="String" />
+            </InsertParameters>
+            <SelectParameters>
+                <asp:QueryStringParameter Name="tag_id" QueryStringField="tag_id" Type="Int32" />
+            </SelectParameters>
+            <UpdateParameters>
+                <asp:Parameter Name="tag_name" Type="String" />
+                <asp:Parameter Name="tag_color" Type="String" />
+                <asp:Parameter Name="tag_bg" Type="String" />
+                <asp:Parameter Name="Original_tag_id_PK" Type="Int32" />
+            </UpdateParameters>
+        </asp:ObjectDataSource>
+            </div>
+</div>--%>
+<div class="col-md-6">
       <asp:Repeater ID="Repeater1" runat="server" DataSourceID="ods_tags">
       <ItemTemplate>
         <asp:Label ID="tag_name" runat="server" Text='<%# Eval("tag_name") %>' BackColor='<%# System.Drawing.Color.FromName(Eval("tag_bg").ToString()) %>' ForeColor='<%# System.Drawing.Color.FromName(Eval("tag_color").ToString()) %>' CssClass="label"></asp:Label>
