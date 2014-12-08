@@ -32,7 +32,7 @@ public partial class login:System.Web.UI.Page {
         moderator.Add( "mod_login_name", mod_login_name );
 
         Session.Add("Moderator",moderator);
-        Session.Add("profile", mod_id);
+        Session.Add("mod_id", mod_id);
 
         FormsAuthentication.SetAuthCookie(mod_login_name,false);
         Response.Redirect("~/admin/profile.aspx");
