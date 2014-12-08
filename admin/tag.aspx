@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/template.master" AutoEventWireup="true" CodeFile="create-tag.aspx.cs" Inherits="create_tag" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/template.master" AutoEventWireup="true" CodeFile="tag.aspx.cs" Inherits="tag" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head_title" Runat="Server">Create Tag
 </asp:Content>
