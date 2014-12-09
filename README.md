@@ -40,6 +40,17 @@ To contribute, do the following:
 ### File Tree
 Files that don't exist are marked with an asterisk (*)
 
+- admin
+ - browse.aspx
+ - browse.aspx.cs
+ - edit-profile.aspx
+ - edit-profile.aspx.cs
+ - edit-ticket.aspx
+ - edit-ticket.aspx.cs
+ - profile.aspx
+ - profile.aspx.cs
+ - tag.aspx
+ - tag.aspx.cs
 - App_Code
  - App_Code/TicketDB.xsd
  - App_Code/TicketDB.xss
@@ -63,18 +74,10 @@ Files that don't exist are marked with an asterisk (*)
 - .gitignore
 - about.aspx
 - about.aspx.cs
-- browse.aspx
-- browse.aspx.cs
 - contact.aspx
 - contact.aspx.cs
 - create-ticket.aspx
 - create-ticket.aspx.cs
-- edit-profile.aspx
-- edit-profile.aspx.cs
-- edit-tag.aspx
-- edit-tag.aspx.cs
-- edit-ticket.aspx
-- edit-ticket.aspx.cs
 - echo.sln (ignored)
 - echo.v11.suo (ignored)
 - index.aspx
@@ -82,8 +85,6 @@ Files that don't exist are marked with an asterisk (*)
 - LICENSE.md
 - login.aspx
 - login.aspx.cs
-- profile.aspx
-- profile.aspx.cs
 - README.md
 - style.css
 - template.master
