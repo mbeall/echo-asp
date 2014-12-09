@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/template.master" AutoEventWireup="true" CodeFile="create-tag.aspx.cs" Inherits="create_tag" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/template.master" AutoEventWireup="true" CodeFile="tag.aspx.cs" Inherits="tag" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head_title" Runat="Server">Create Tag
 </asp:Content>
@@ -78,15 +78,15 @@
     </div>
   </div>
 
-<%--    <div class="col-md-6">  
-        <div class="form-group">       
+<%--    <div class="col-md-6">
+        <div class="form-group">
         <asp:DetailsView ID="DetailsView1" runat="server" Height="50px" Width="125px" AutoGenerateRows="False" DataKeyNames="tag_id_PK" DataSourceID="ods_create_tags" BorderColor="Black" BorderStyle="None" CssClass="form-group" DefaultMode="Insert" GridLines="None">
               <Fields>
                   <asp:BoundField DataField="tag_id_PK" HeaderText="tag_id_PK" InsertVisible="False" ReadOnly="True" SortExpression="tag_id_PK" />
                   <asp:BoundField DataField="tag_name" HeaderText="Tag Name" SortExpression="tag_name" ControlStyle-CssClass="form-control"/>
-                  <asp:BoundField DataField="tag_color" HeaderText="Tag Color" SortExpression="tag_color" 
+                  <asp:BoundField DataField="tag_color" HeaderText="Tag Color" SortExpression="tag_color"
                       ControlStyle-CssClass="form-control"/>
-                  <asp:BoundField DataField="tag_bg" HeaderText="Tag Background" SortExpression="tag_bg" 
+                  <asp:BoundField DataField="tag_bg" HeaderText="Tag Background" SortExpression="tag_bg"
                      />
                   <asp:CommandField ShowEditButton="True" ShowInsertButton="True" controlstyle-cssClass="btn btn-primary"/>
             </Fields>
