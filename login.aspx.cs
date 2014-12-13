@@ -39,11 +39,7 @@ public partial class login : System.Web.UI.Page
         Session.Add("Moderator", moderator);
         Session.Add("mod_id", mod_id);
 
-        if (moderators.Rows.Count < 0)
-        {
-          Response.Redirect("~/admin/profile.aspx");
-        }
-        else
+
         if (Request.QueryString["ReturnURL"] != string.Empty)
         {
           FormsAuthentication.RedirectFromLoginPage(mod_login_name, false);
