@@ -13,6 +13,7 @@
   <link rel="stylesheet" id="stylesheet" href="../style.css" type="text/css" media="all" />
 </head>
 <body>
+  <form id="form1" runat="server">
   <div id="page" class="hfeed site">
     <nav class="navbar navbar-canvas navbar-top" role="navigation">
       <h1 class="screen-reader-text">Menu</h1>
@@ -194,7 +195,13 @@
               </article>
             </div><!-- .row --><?php
           } ?>--%>
+        <div class="col-md-2">
+        <asp:TextBox ID="search_TextBox" runat="server" CssClass="form-control" TextMode="Search" Text="Search"></asp:TextBox>
+
+        </div>
+         <asp:Button ID="filter_button" runat="server" Text="Filter" class="btn btn-primary" /><asp:ObjectDataSource ID="ObjectDataSource1" runat="server"></asp:ObjectDataSource>
       </div><!-- #content -->
+
     </div><!-- #primary -->
   </div><!-- #page -->
 
@@ -213,6 +220,7 @@
   <script type="text/javascript" src="../js/jquery-2.1.1.min.js"></script>
   <script type="text/javascript" src="../js/jquery-migrate-1.2.1.min.js"></script>
   <script type="text/javascript" src="../js/bootstrap.min.js"></script>
+  </form>
 </body>
 </html>
 
