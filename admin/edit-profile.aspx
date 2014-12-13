@@ -36,7 +36,7 @@
     <input type="password" class="form-control" id="mod_pass" name="mod_pass">
   </div>
        </div><!-- .col-md-6-->
-    </div><!-- .row -->   
+    </div><!-- .row -->
                <div class="row">
     <div class="col-md-6">
   <div class="form-group">
@@ -52,7 +52,7 @@
     <input type="text" class="form-control" id="Text2" name="mod_first" value="<%# Eval("mod_last") %>">
   </div>
        </div><!-- .col-md-6-->
-    </div><!-- .row -->   
+    </div><!-- .row -->
               <div class="row">
     <div class="col-md-12">
   <div class="form-group">
@@ -60,7 +60,7 @@
     <input type="email" class="form-control" id="Email1" name="mod_email" value="<%# Eval("mod_email") %>" required>
   </div>
        </div><!-- .col-md-12-->
-    </div><!-- .row --> 
+    </div><!-- .row -->
           </itemtemplate>
         </asp:repeater>
       </div>

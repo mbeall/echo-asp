@@ -47,7 +47,7 @@
                 <asp:ListItem Value="low">Low</asp:ListItem>
         </asp:dropdownlist>
         </div>
-        
+
         <div class="form-group">
         <label for="tkt_status">Status</label>
         <asp:dropdownlist id="tkt_status" runat="server" text='<%# Bind("tkt_status") %>' cssclass="form-control">
@@ -56,7 +56,7 @@
                 <asp:ListItem Value="review">Under Review</asp:ListItem>
         </asp:dropdownlist>
         </div>
-        
+
         <asp:label id="mod_id_FK" runat="server" text='<%# Session["mod_id"] %>' visible="False" />
         <br />
 
@@ -87,7 +87,7 @@
                 <asp:ListItem Value="low">Low</asp:ListItem>
         </asp:dropdownlist>
         </div>
-        
+
         <div class="form-group">
         <label for="tkt_status">Status</label>
         <asp:dropdownlist id="tkt_status" runat="server" text='<%# Bind("tkt_status") %>' cssclass="form-control">
@@ -96,14 +96,14 @@
                 <asp:ListItem Value="review">Under Review</asp:ListItem>
         </asp:dropdownlist>
         </div>
-        
+
         <asp:label id="mod_id_FK" runat="server" text='<%# Session["mod_id"] %>' visible="False" />
         <br />
 
         <asp:linkbutton id="UpdateButton" runat="server" causesvalidation="True" commandname="Update" text="Update" cssclass="btn btn-primary" />
         &nbsp;<asp:linkbutton id="UpdateCancelButton" runat="server" causesvalidation="False" commandname="Cancel" text="Cancel" cssclass="btn btn-default" />
       </itemtemplate>
-      
+
     </asp:formview>
   </form>
 </asp:content>
