@@ -19,30 +19,30 @@
             <br />
            Tag Name:<asp:RequiredFieldValidator ID="tag_name_EditValidator1" runat="server" ErrorMessage="Tag Name is a Required Field" ControlToValidate="tag_nameTextBox" Visible="True" Text="*"></asp:RequiredFieldValidator>
             <asp:TextBox ID="tag_nameTextBox" runat="server" Text='<%# Bind("tag_name") %>' ControlStyle-CssClass="form-control" />
-            
+
             <br />
             Tag Color:<asp:RequiredFieldValidator ID="tag_colorRequiredValidator1" runat="server" ErrorMessage="Tag  Color is a Required Field" Text="*" ControlToValidate="tag_colorTextBox"></asp:RequiredFieldValidator><asp:RegularExpressionValidator ID="tag_color_EditValidator1" runat="server" ErrorMessage="Please make sure your input is in the correct format. Ex.#000000" ValidationExpression='^#+([a-fA-F0-9]){6}' ControlToValidate ="tag_colorTextBox" Visible="True" Text="*"></asp:RegularExpressionValidator>
-            <asp:TextBox ID="tag_colorTextBox" runat="server" Text='<%# Bind("tag_color") %>' ControlStyle-CssClass="form-control" />       
-            
+            <asp:TextBox ID="tag_colorTextBox" runat="server" Text='<%# Bind("tag_color") %>' ControlStyle-CssClass="form-control" />
+
             <br />
             Tag Background:<asp:RequiredFieldValidator ID="tag_bgRequiredValidator1" runat="server" ErrorMessage="Tag Background is a Required Field" Text="*" ControlToValidate="tag_bgTextbox"></asp:RequiredFieldValidator><asp:RegularExpressionValidator ID="tag_bg_EditValidator1" runat="server" ErrorMessage="Please make sure your input is in the correct format. Ex.#ffffff" ValidationExpression='^#+([a-fA-F0-9]){6}' ControlToValidate ="tag_bgTextBox" Visible="True" Text="*"></asp:RegularExpressionValidator>
             <asp:TextBox ID="tag_bgTextBox" runat="server" Text='<%# Bind("tag_bg") %>' ControlStyle-CssClass="form-control"/>
-            
+
             <br />
             <asp:LinkButton ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Update" class="btn btn-primary"/>
             &nbsp;<asp:LinkButton ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" class="btn btn-primary"/>
         </EditItemTemplate>
         <InsertItemTemplate>
             Tag Name:<asp:RequiredFieldValidator ID="tag_name_InsertValidator1" runat="server" ErrorMessage="Tag Name is a Required Field" Text="*" Visible="true" ControlToValidate="tag_nameTextBox"></asp:RequiredFieldValidator>
-            <asp:TextBox ID="tag_nameTextBox" runat="server" Text='<%# Bind("tag_name") %>'  ControlStyle-CssClass="form-control"/>            
+            <asp:TextBox ID="tag_nameTextBox" runat="server" Text='<%# Bind("tag_name") %>'  ControlStyle-CssClass="form-control"/>
             <br />
             Tag Color:<asp:RequiredFieldValidator ID="tag_colorRequiredFieldValidator" runat="server" ErrorMessage="Tag Color is a Required Field" Text="*" ControlToValidate="tag_colorTextBox"></asp:RequiredFieldValidator><asp:RegularExpressionValidator ID="tag_color_InsertValidator1" runat="server" ErrorMessage="Please make sure your input is in the correct format. Ex.#000000" ValidationExpression='^#+([a-fA-F0-9]){6}' ControlToValidate="tag_colorTextBox" Visible="True" Text="*"></asp:RegularExpressionValidator>
             <asp:TextBox ID="tag_colorTextBox" runat="server" Text='<%# Bind("tag_color") %>' ControlStyle-CssClass="form-control"/>
-            
+
             <br />
             Tag Background:<asp:RequiredFieldValidator ID="tag_bgRequiredFieldValidator" runat="server" ErrorMessage="Tag Background is a Rquired Field" Text="*" ControlToValidate="tag_bgTextBox"></asp:RequiredFieldValidator><asp:RegularExpressionValidator ID="tag_bg_InsertValidator1" runat="server" ErrorMessage="Please make sure your input is in the correct format. Ex. #ffffff" ValidationExpression='^#+([a-fA-F0-9]){6}' ControlToValidate="tag_bgTextBox" Visible="True" Text="*"></asp:RegularExpressionValidator>
             <asp:TextBox ID="tag_bgTextBox" runat="server" Text='<%# Bind("tag_bg") %>' ControlStyle-CssClass="form-control"/>
-            
+
             <br />
             <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insert" class="btn btn-primary"/>
             &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" class="btn btn-primary"/>
