@@ -6,11 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Browse Tickets | echo</title>
   <link rel="profile" href="http://gmpg.org/xfn/11" />
-  <link rel="stylesheet" id="bootstrap" href="css/bootstrap.min.css" type="text/css" media="all" />
-  <link rel="stylesheet" id="open_sans" href="css/open-sans.css" type="text/css" media="all" />
-  <link rel="stylesheet" id="flint" href="css/flint.css" type="text/css" media="all" />
-  <link rel="stylesheet" id="canvas" href="css/canvas.css" type="text/css" media="all" />
-  <link rel="stylesheet" id="stylesheet" href="style.css" type="text/css" media="all" />
+  <link rel="stylesheet" id="bootstrap" href="../css/bootstrap.min.css" type="text/css" media="all" />
+  <link rel="stylesheet" id="open_sans" href="../css/open-sans.css" type="text/css" media="all" />
+  <link rel="stylesheet" id="flint" href="../css/flint.css" type="text/css" media="all" />
+  <link rel="stylesheet" id="canvas" href="../css/canvas.css" type="text/css" media="all" />
+  <link rel="stylesheet" id="stylesheet" href="../style.css" type="text/css" media="all" />
 </head>
 <body>
   <div id="page" class="hfeed site">
@@ -30,11 +30,11 @@
 
         <div class="collapse navbar-collapse navbar-c410">
           <ul id="menu-top" class="nav navbar-nav navbar-right">
-            <li><a href="about.aspx">About</a></li>
-            <li><a href="contact.aspx">Contact Us</a></li>
+            <li><a href="../about.aspx">About</a></li>
+            <li><a href="../contact.aspx">Contact Us</a></li>
             <li><a href="browse.aspx">Browse</a></li>
-            <li><a href="create-ticket.aspx">Submit Ticket</a></li>
-            <li><a href="login.aspx">Login</a></li>
+            <li><a href="../create-ticket.aspx">Submit Ticket</a></li>
+            <li><a href="../login.aspx">Login</a></li>
           </ul>
         </div><!-- .navbar-collapse -->
       </div><!-- .container -->
@@ -210,9 +210,9 @@
     </div><!-- .site-info -->
   </footer><!-- #colophon -->
 
-  <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
-  <script type="text/javascript" src="js/jquery-migrate-1.2.1.min.js"></script>
-  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="../js/jquery-2.1.1.min.js"></script>
+  <script type="text/javascript" src="../js/jquery-migrate-1.2.1.min.js"></script>
+  <script type="text/javascript" src="../js/bootstrap.min.js"></script>
 </body>
 </html>
 
