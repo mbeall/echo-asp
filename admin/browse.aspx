@@ -13,6 +13,7 @@
   <link rel="stylesheet" id="stylesheet" href="../style.css" type="text/css" media="all" />
 </head>
 <body>
+  <form id="form1" runat="server">
   <div id="page" class="hfeed site">
     <nav class="navbar navbar-canvas navbar-top" role="navigation">
       <h1 class="screen-reader-text">Menu</h1>
@@ -194,7 +195,19 @@
               </article>
             </div><!-- .row --><?php
           } ?>--%>
-      </div><!-- #content -->
+        <div class="form-group"> 
+          
+        <asp:TextBox ID="searchTextBox" runat="server" CssClass="form-control" Text="Search"></asp:TextBox>
+          
+        <asp:DropDownList ID="tag_DropDown" runat="server" CssClass="form-control"></asp:DropDownList>
+         
+        <asp:DropDownList ID="tk_priority_DropDown" CssClass="form-control" runat="server"></asp:DropDownList>
+         
+        <asp:DropDownList ID="tk_status_DropDown" CssClass="form-control" runat="server"></asp:DropDownList>
+          
+        </div> <!--#Row--->
+        
+&nbsp;</div><!-- #content -->
     </div><!-- #primary -->
   </div><!-- #page -->
 
@@ -213,6 +226,7 @@
   <script type="text/javascript" src="../js/jquery-2.1.1.min.js"></script>
   <script type="text/javascript" src="../js/jquery-migrate-1.2.1.min.js"></script>
   <script type="text/javascript" src="../js/bootstrap.min.js"></script>
+  </form>
 </body>
 </html>
 
