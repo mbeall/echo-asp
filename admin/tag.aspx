@@ -1,10 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/template.master" AutoEventWireup="true" CodeFile="tag.aspx.cs" Inherits="tag" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head_title" Runat="Server">Create Tag
+<asp:Content ID="Content1" ContentPlaceHolderID="head_title" Runat="Server">Create \ Edit Tag
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="page_title" Runat="Server">Create Tag
+<asp:Content ID="Content2" ContentPlaceHolderID="page_title" Runat="Server">Create \ Edit Tag
 </asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="entry_title" Runat="Server">Create Tag
+<asp:Content ID="Content3" ContentPlaceHolderID="entry_title" Runat="Server">Create \ Edit Tag
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="entry_content" Runat="Server">
     <%--<?php if (is_logged_in()) { ?>--%>
@@ -12,39 +12,42 @@
 <Form runat="server">
     <div class="col-md-6">
         <div class="form-group">
-    <asp:FormView ID="FormView1" runat="server" DataKeyNames="tag_id_PK" DataSourceID="ods_create_tags" DefaultMode="Insert">
+            <asp:ValidationSummary ID="ValidationSummary1" runat="server" CssClass="alert alert-danger" DisplayMode="List" />
+    <asp:FormView ID="FormView1" runat="server" DataKeyNames="tag_id_PK" DataSourceID="ods_create_tags" BorderStyle="None">
         <EditItemTemplate>
-            tag_id_PK:
             <asp:Label ID="tag_id_PKLabel1" runat="server" Text='<%# Eval("tag_id_PK") %>' Visible="False" />
             <br />
-           Tag Name:
+           Tag Name:<asp:RequiredFieldValidator ID="tag_name_EditValidator1" runat="server" ErrorMessage="Tag Name is a Required Field" ControlToValidate="tag_nameTextBox" Visible="True" Text="*"></asp:RequiredFieldValidator>
             <asp:TextBox ID="tag_nameTextBox" runat="server" Text='<%# Bind("tag_name") %>' ControlStyle-CssClass="form-control" />
+            
             <br />
-            Tag Color:
-            <asp:TextBox ID="tag_colorTextBox" runat="server" Text='<%# Bind("tag_color") %>' ControlStyle-CssClass="form-control" />
+            Tag Color:<asp:RequiredFieldValidator ID="tag_colorRequiredValidator1" runat="server" ErrorMessage="Tag  Color is a Required Field" Text="*" ControlToValidate="tag_colorTextBox"></asp:RequiredFieldValidator><asp:RegularExpressionValidator ID="tag_color_EditValidator1" runat="server" ErrorMessage="Please make sure your input is in the correct format. Ex.#000000" ValidationExpression='^#+([a-fA-F0-9]){6}' ControlToValidate ="tag_colorTextBox" Visible="True" Text="*"></asp:RegularExpressionValidator>
+            <asp:TextBox ID="tag_colorTextBox" runat="server" Text='<%# Bind("tag_color") %>' ControlStyle-CssClass="form-control" />       
+            
             <br />
-            Tag Background:
+            Tag Background:<asp:RequiredFieldValidator ID="tag_bgRequiredValidator1" runat="server" ErrorMessage="Tag Background is a Required Field" Text="*" ControlToValidate="tag_bgTextbox"></asp:RequiredFieldValidator><asp:RegularExpressionValidator ID="tag_bg_EditValidator1" runat="server" ErrorMessage="Please make sure your input is in the correct format. Ex.#ffffff" ValidationExpression='^#+([a-fA-F0-9]){6}' ControlToValidate ="tag_bgTextBox" Visible="True" Text="*"></asp:RegularExpressionValidator>
             <asp:TextBox ID="tag_bgTextBox" runat="server" Text='<%# Bind("tag_bg") %>' ControlStyle-CssClass="form-control"/>
+            
             <br />
             <asp:LinkButton ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Update" class="btn btn-primary"/>
             &nbsp;<asp:LinkButton ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" class="btn btn-primary"/>
         </EditItemTemplate>
         <InsertItemTemplate>
-            Tag Name:
-            <asp:TextBox ID="tag_nameTextBox" runat="server" Text='<%# Bind("tag_name") %>'  ControlStyle-CssClass="form-control"/>
+            Tag Name:<asp:RequiredFieldValidator ID="tag_name_InsertValidator1" runat="server" ErrorMessage="Tag Name is a Required Field" Text="*" Visible="true" ControlToValidate="tag_nameTextBox"></asp:RequiredFieldValidator>
+            <asp:TextBox ID="tag_nameTextBox" runat="server" Text='<%# Bind("tag_name") %>'  ControlStyle-CssClass="form-control"/>            
             <br />
-            Tag Color:
+            Tag Color:<asp:RequiredFieldValidator ID="tag_colorRequiredFieldValidator" runat="server" ErrorMessage="Tag Color is a Required Field" Text="*" ControlToValidate="tag_colorTextBox"></asp:RequiredFieldValidator><asp:RegularExpressionValidator ID="tag_color_InsertValidator1" runat="server" ErrorMessage="Please make sure your input is in the correct format. Ex.#000000" ValidationExpression='^#+([a-fA-F0-9]){6}' ControlToValidate="tag_colorTextBox" Visible="True" Text="*"></asp:RegularExpressionValidator>
             <asp:TextBox ID="tag_colorTextBox" runat="server" Text='<%# Bind("tag_color") %>' ControlStyle-CssClass="form-control"/>
+            
             <br />
-            Tag Background:
+            Tag Background:<asp:RequiredFieldValidator ID="tag_bgRequiredFieldValidator" runat="server" ErrorMessage="Tag Background is a Rquired Field" Text="*" ControlToValidate="tag_bgTextBox"></asp:RequiredFieldValidator><asp:RegularExpressionValidator ID="tag_bg_InsertValidator1" runat="server" ErrorMessage="Please make sure your input is in the correct format. Ex. #ffffff" ValidationExpression='^#+([a-fA-F0-9]){6}' ControlToValidate="tag_bgTextBox" Visible="True" Text="*"></asp:RegularExpressionValidator>
             <asp:TextBox ID="tag_bgTextBox" runat="server" Text='<%# Bind("tag_bg") %>' ControlStyle-CssClass="form-control"/>
+            
             <br />
             <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insert" class="btn btn-primary"/>
             &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" class="btn btn-primary"/>
         </InsertItemTemplate>
         <ItemTemplate>
-            tag_id_PK:
-            <asp:Label ID="tag_id_PKLabel" runat="server" Text='<%# Eval("tag_id_PK") %>' Visible="False"/>
             <br />
             Tag Name:
             <asp:Label ID="tag_nameLabel" runat="server" Text='<%# Bind("tag_name") %>' ControlStyle-CssClass="form-control"/>
@@ -118,7 +121,6 @@
       </asp:Repeater>
       <asp:ObjectDataSource ID="ods_tags" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="TicketDBTableAdapters.tagsTableAdapter"></asp:ObjectDataSource>
     </div>
-  <asp:ValidationSummary ID="ValidationSummary1" runat="server" ShowMessageBox="True" ShowSummary="False" />
     <!--.col-md-6-->
     <%--<?php
     $tags = get_tags();
