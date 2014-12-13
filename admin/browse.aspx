@@ -195,19 +195,13 @@
               </article>
             </div><!-- .row --><?php
           } ?>--%>
-        <div class="form-group"> 
-          
-        <asp:TextBox ID="searchTextBox" runat="server" CssClass="form-control" Text="Search"></asp:TextBox>
-          
-        <asp:DropDownList ID="tag_DropDown" runat="server" CssClass="form-control"></asp:DropDownList>
-         
-        <asp:DropDownList ID="tk_priority_DropDown" CssClass="form-control" runat="server"></asp:DropDownList>
-         
-        <asp:DropDownList ID="tk_status_DropDown" CssClass="form-control" runat="server"></asp:DropDownList>
-          
-        </div> <!--#Row--->
-        
-&nbsp;</div><!-- #content -->
+        <div class="col-md-2">
+        <asp:TextBox ID="search_TextBox" runat="server" CssClass="form-control" TextMode="Search" Text="Search"></asp:TextBox>
+
+        </div>
+         <asp:Button ID="filter_button" runat="server" Text="Filter" class="btn btn-primary" /><asp:ObjectDataSource ID="ObjectDataSource1" runat="server"></asp:ObjectDataSource>
+      </div><!-- #content -->
+
     </div><!-- #primary -->
   </div><!-- #page -->
 
