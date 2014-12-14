@@ -13,6 +13,7 @@
   <link rel="stylesheet" id="stylesheet" href="<%=ResolveUrl("~/style.css") %>" type="text/css" media="all" />
 </head>
 <body>
+  
   <div id="page" class="hfeed site">
     <nav class="navbar navbar-canvas navbar-top" role="navigation">
       <h1 class="screen-reader-text">Menu</h1>
@@ -34,7 +35,7 @@
             <li><a href="<%=ResolveUrl("~/contact.aspx") %>">Contact Us</a></li>
             <li><a href="<%=ResolveUrl("~/admin/browse.aspx") %>">Browse</a></li>
             <li><a href="<%=ResolveUrl("~/create-ticket.aspx") %>">Submit Ticket</a></li>
-            <li><a href="<%=ResolveUrl("~/login.aspx") %>">Login</a></li>
+            <li><asp:HyperLink ID="HyperLink1" runat="server" >Login</asp:HyperLink></li>
           </ul>
         </div><!-- .navbar-collapse -->
       </div><!-- .container -->
@@ -88,5 +89,6 @@
   <script type="text/javascript" src="<%=ResolveUrl("~/js/jquery-2.1.1.min.js") %>"></script>
   <script type="text/javascript" src="<%=ResolveUrl("~/js/jquery-migrate-1.2.1.min.js") %>"></script>
   <script type="text/javascript" src="<%=ResolveUrl("~/js/bootstrap.min.js") %>"></script>
+ 
 </body>
 </html>
