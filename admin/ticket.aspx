@@ -1,4 +1,4 @@
-<%@ Page Title="" Language="C#" MasterPageFile="~/template.master" AutoEventWireup="true" CodeFile="edit-ticket.aspx.cs" Inherits="edit_ticket" %>
+<%@ Page Title="" Language="C#" MasterPageFile="~/template.master" AutoEventWireup="true" CodeFile="ticket.aspx.cs" Inherits="ticket" %>
 
 <asp:content ID="Content1" ContentPlaceHolderID="head_title" Runat="Server">Edit Ticket
 </asp:content>
@@ -7,7 +7,9 @@
 <asp:content ID="Content3" ContentPlaceHolderID="entry_title" Runat="Server">Edit Ticket
 </asp:content>
 <asp:content ID="Content4" ContentPlaceHolderID="entry_content" Runat="Server">
-  <form id="Form1" runat="server">
+  <form id="frm_edit_ticket" runat="server">
+  <div class="row">
+
     <asp:objectdatasource id="ods_edit_ticket" runat="server" oldvaluesparameterformatstring="original_{0}" selectmethod="get_ticket" typename="TicketDBTableAdapters.ticketsTableAdapter" updatemethod="Update">
       <selectparameters>
         <asp:querystringparameter name="tkt_id_PK" querystringfield="tkt_id" type="Int32" />
@@ -22,7 +24,17 @@
         <asp:parameter name="Original_tkt_id_PK" type="Int32" />
       </updateparameters>
     </asp:objectdatasource>
-    <asp:formview id="frm_edit_ticket" runat="server" datakeynames="tkt_id_PK" datasourceid="ods_edit_ticket" defaultmode="Edit">
+    <asp:objectdatasource id="ods_edit_ticket_tags" runat="server" oldvaluesparameterformatstring="original_{0}" selectmethod="get_ticket_tags" typename="TicketDBTableAdapters.the_ticket_tagsTableAdapter" deletemethod="remove_ticket_tag">
+      <deleteparameters>
+        <asp:parameter name="tkt_id" type="Int32" />
+        <asp:parameter name="tag_id" type="Int32" />
+      </deleteparameters>
+      <selectparameters>
+        <asp:querystringparameter name="tkt_id" querystringfield="tkt_id" type="Int32" />
+      </selectparameters>
+    </asp:objectdatasource>
+    <div class="col-xs-6">
+    <asp:formview id="fv_edit_ticket" runat="server" datakeynames="tkt_id_PK" datasourceid="ods_edit_ticket" defaultmode="Edit">
       <edititemtemplate>
         <div class="form-group">
         <label for="tkt_name">Name</label>
@@ -105,5 +117,25 @@
       </itemtemplate>
 
     </asp:formview>
+    </div><!-- .col-xs-6 -->
+    <div class="col-xs-6">
+      <asp:repeater id="rep_edit_ticket_tags" runat="server" datasourceid="ods_edit_ticket_tags">
+        <itemtemplate>
+        <div class="btn-group">
+        <asp:button ID="tag_name" runat="server" Text='<%# Bind("tag_name") %>' BackColor='<%# System.Drawing.Color.FromName(Eval("tag_bg").ToString()) %>' ForeColor='<%# System.Drawing.Color.FromName(Eval("tag_color").ToString()) %>' CssClass="btn" usesubmitbehavior="False" />
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+            <span class="caret"></span>
+            <span class="sr-only">Toggle Dropdown</span>
+          </button>
+          <ul class="dropdown-menu" role="menu">
+            <li><asp:hyperlink id="hl_edit_tag" runat="server" navigateurl='<%# Eval("tag_id_FK","~/admin/tag.aspx?tag_id_PK={0}" ) %>'>Edit</asp:hyperlink></li>
+            <li><asp:hyperlink id="hl_remove_tag" runat="server" navigateurl='<%# String.Format("~/admin/remove-tag.aspx?tag_id={0}&tkt_id={1}", Eval("tag_id_FK"), Eval("tkt_id_FK") )%>'>Remove</asp:hyperlink></li>
+          </ul>
+        </div>
+        </itemtemplate>
+      </asp:repeater>
+
+    </div>
+    </div><!-- .row -->
   </form>
 </asp:content>
