@@ -7,7 +7,7 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="entry_title" Runat="Server">Browse Tickets
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="entry_content" Runat="Server">
-<form runat="server">
+  <form runat="server">
        <div class="row">
         <div class="col-md-2">
         <asp:TextBox ID="search_TextBox" runat="server" CssClass="form-control" TextMode="Search" ToolTip="Search"></asp:TextBox>
@@ -36,7 +36,7 @@
 
         <asp:Repeater ID="Repeater1" runat="server" DataSourceID="ods_get_tickets">
         <ItemTemplate>
-          <asp:HyperLink ID="tkt_nameHyperlink" runat="server" Text='<%# Eval("tkt_name") %>' NavigateUrl='<%# Eval("tkt_id_PK","~/admin/edit-ticket.aspx?tkt_id={0}")%>'> </asp:HyperLink>
+          <asp:HyperLink ID="tkt_nameHyperlink" runat="server" Text='<%# Eval("tkt_name") %>' NavigateUrl='<%# Eval("tkt_id_PK","~/admin/ticket.aspx?tkt_id={0}")%>'> </asp:HyperLink>
          <br />
           <asp:Label ID="tkt_details" runat="server" Text='<%# Eval("tkt_desc") %>'></asp:Label><br />
          <%-- <asp:Label ID="tag_nameLabel" runat="server" Text='<%# Eval("tag_name") %>'></asp:Label>--%>

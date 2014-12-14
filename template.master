@@ -37,7 +37,7 @@
             <li><asp:HyperLink ID="HyperLink2" runat="server" >Submit Ticket</asp:HyperLink></li>
             <li><asp:HyperLink ID="HyperLink1" runat="server" >Login</asp:HyperLink></li>
             <li><asp:HyperLink ID="HyperLink3" runat="server" >Edit Profile</asp:HyperLink></li>
-            
+
           </ul>
         </div><!-- .navbar-collapse -->
       </div><!-- .container -->
