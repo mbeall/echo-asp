@@ -12,14 +12,14 @@
         <div class="col-md-2">
         <asp:TextBox ID="search_TextBox" runat="server" CssClass="form-control" TextMode="Search" ToolTip="Search"></asp:TextBox>
          </div>
-         <div class="col-md-2">          
+         <div class="col-md-2">
          <asp:DropDownList ID="priority_DropDown" runat="server" CssClass="form-control">
             <asp:ListItem>Low</asp:ListItem>
             <asp:ListItem>Normal</asp:ListItem>
             <asp:ListItem>High</asp:ListItem>
           </asp:DropDownList>
          </div>
-         <div class="col-md-2"> 
+         <div class="col-md-2">
           <asp:DropDownList ID="status_DropDown" runat="server" CssClass="form-control">
             <asp:ListItem>Open</asp:ListItem>
             <asp:ListItem>Closed</asp:ListItem>
@@ -30,7 +30,7 @@
             <asp:Button ID="filter_button" runat="server" Text="Filter" class="btn btn-primary" />
           </div>
         </div><!---Row--->
-       
+
         <br />
         <br />
 
@@ -44,7 +44,7 @@
           <br />
           <br />
         </ItemTemplate>
-       
+
         </asp:Repeater>
 
   <asp:ObjectDataSource ID="ods_get_tickets" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="get_tickets" TypeName="TicketDBTableAdapters.the_ticketsTableAdapter">
