@@ -13,10 +13,6 @@ public partial class edit_profile : System.Web.UI.Page
     }
     protected void Unnamed1_Click(object sender, EventArgs e)
     {
-
-    }
-    protected void Unnamed2_Click(object sender, EventArgs e)
-    {
-
+      
     }
 }
