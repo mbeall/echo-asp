@@ -1,4 +1,4 @@
-Echo (ASP) 0.2.0
+Echo (ASP) 0.3.0
 ===
 
 The ASP code for the ASP version of the project
@@ -45,12 +45,12 @@ Files that don't exist are marked with an asterisk (*)
  - browse.aspx.cs
  - edit-profile.aspx
  - edit-profile.aspx.cs
- - edit-ticket.aspx
- - edit-ticket.aspx.cs
  - profile.aspx
  - profile.aspx.cs
  - tag.aspx
  - tag.aspx.cs
+ - ticket.aspx
+ - ticket.aspx.cs
 - App_Code
  - App_Code/TicketDB.xsd
  - App_Code/TicketDB.xss
@@ -76,8 +76,6 @@ Files that don't exist are marked with an asterisk (*)
 - about.aspx.cs
 - contact.aspx
 - contact.aspx.cs
-- create-ticket.aspx
-- create-ticket.aspx.cs
 - echo.sln (ignored)
 - echo.v11.suo (ignored)
 - index.aspx
@@ -89,7 +87,7 @@ Files that don't exist are marked with an asterisk (*)
 - style.css
 - template.master
 - template.master.cs
-- ticket.aspx*
-- ticket.aspx.cs*
+- ticket.aspx
+- ticket.aspx.cs
 - Web.config
 - Web.Debug.config
