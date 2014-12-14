@@ -13,7 +13,7 @@
   <link rel="stylesheet" id="stylesheet" href="<%=ResolveUrl("~/style.css") %>" type="text/css" media="all" />
 </head>
 <body>
-  
+
   <div id="page" class="hfeed site">
     <nav class="navbar navbar-canvas navbar-top" role="navigation">
       <h1 class="screen-reader-text">Menu</h1>
@@ -89,6 +89,6 @@
   <script type="text/javascript" src="<%=ResolveUrl("~/js/jquery-2.1.1.min.js") %>"></script>
   <script type="text/javascript" src="<%=ResolveUrl("~/js/jquery-migrate-1.2.1.min.js") %>"></script>
   <script type="text/javascript" src="<%=ResolveUrl("~/js/bootstrap.min.js") %>"></script>
- 
+
 </body>
 </html>
