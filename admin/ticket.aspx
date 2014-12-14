@@ -1,4 +1,4 @@
-<%@ Page Title="" Language="C#" MasterPageFile="~/template.master" AutoEventWireup="true" CodeFile="edit-ticket.aspx.cs" Inherits="edit_ticket" %>
+<%@ Page Title="" Language="C#" MasterPageFile="~/template.master" AutoEventWireup="true" CodeFile="ticket.aspx.cs" Inherits="ticket" %>
 
 <asp:content ID="Content1" ContentPlaceHolderID="head_title" Runat="Server">Edit Ticket
 </asp:content>
@@ -9,7 +9,7 @@
 <asp:content ID="Content4" ContentPlaceHolderID="entry_content" Runat="Server">
   <form id="frm_edit_ticket" runat="server">
   <div class="row">
-  
+
     <asp:objectdatasource id="ods_edit_ticket" runat="server" oldvaluesparameterformatstring="original_{0}" selectmethod="get_ticket" typename="TicketDBTableAdapters.ticketsTableAdapter" updatemethod="Update">
       <selectparameters>
         <asp:querystringparameter name="tkt_id_PK" querystringfield="tkt_id" type="Int32" />
