@@ -129,7 +129,7 @@
           </button>
           <ul class="dropdown-menu" role="menu">
             <li><asp:hyperlink id="hl_edit_tag" runat="server" navigateurl='<%# Eval("tag_id_FK","~/admin/tag.aspx?tag_id_PK={0}" ) %>'>Edit</asp:hyperlink></li>
-            <li><asp:hyperlink id="hl_remove_tag" runat="server" navigateurl='<%# String.Format("~/admin/remove-tag.aspx?tag_id={0}&tkt_id={1}", Eval("tag_id_FK"), Eval("tkt_id_FK") )%>'>Remove</asp:hyperlink></li>
+            <li><asp:hyperlink id="hl_remove_tag" runat="server" navigateurl='<%# String.Format("http://www.business.colostate.edu/matthew.b.beall12/php/echo-php/remove-tag.php?tag_id={0}&tkt_id={1}", Eval("tag_id_FK"), Eval("tkt_id_FK") )%>'>Remove</asp:hyperlink></li>
           </ul>
         </div>
         </itemtemplate>

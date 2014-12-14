@@ -34,8 +34,10 @@
             <li><a href="<%=ResolveUrl("~/about.aspx") %>">About</a></li>
             <li><a href="<%=ResolveUrl("~/contact.aspx") %>">Contact Us</a></li>
             <li><a href="<%=ResolveUrl("~/admin/browse.aspx") %>">Browse</a></li>
-            <li><a href="<%=ResolveUrl("~/create-ticket.aspx") %>">Submit Ticket</a></li>
+            <li><asp:HyperLink ID="HyperLink2" runat="server" >Submit Ticket</asp:HyperLink></li>
             <li><asp:HyperLink ID="HyperLink1" runat="server" >Login</asp:HyperLink></li>
+            <li><asp:HyperLink ID="HyperLink3" runat="server" >Edit Profile</asp:HyperLink></li>
+
           </ul>
         </div><!-- .navbar-collapse -->
       </div><!-- .container -->

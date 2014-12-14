@@ -11,31 +11,30 @@
 <form id="ticket_moderator" class="col-xs-6" runat="server" name="ticket_moderator" >
   <input type="hidden" name="tkt_id_PK" value="">
 
-  <div class="form-group">
+  <div class="form-group" runat="server" id="ticket_name">
     <label for="tkt_name">Ticket Name</label>
     <input class="form-control" type="text" name="tkt_name" id="tkt_name" maxlength="45">
   </div>
 
-  <asp:LoginView ID="LoginView1" runat="server">
-    <LoggedInTemplate>
-     <label for="tkt_priority">Ticket Priority</label>
+    <div class="form-group" runat="server" id="priority">
+      <label for="tkt_priority">Ticket Priority</label>
       <select class="form-control" name="tkt_priority">
         <option value="high">High</option>
         <option value="normal" selected>Normal</option>
         <option value="low">Low</option>
       </select>
-      </LoggedInTemplate>
-      </asp:LoginView>
+    </div>
 
 
-  <div class="form-group">
+  <div class="form-group" runat="server" id="description">
     <label for="tkt_desc">Description</label>
     <textarea class="form-control" name="tkt_desc"></textarea>
   </div>
 
   <p>
-    <asp:Button ID="Button1" runat="server" Text="Submit" />
+    <asp:Button ID="Button1" runat="server" Text="Submit" OnClick="Button1_Click" />
     <asp:LinkButton ID="LinkButton1" runat="server" Text="Cancel" PostBackUrl="~/index.aspx">Cancel</asp:LinkButton>
+    <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
   </p>
 </form>
 </asp:Content>

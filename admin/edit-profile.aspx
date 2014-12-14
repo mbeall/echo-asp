@@ -57,7 +57,7 @@
     <div class="col-md-12">
   <div class="form-group">
     <p><strong>Email</strong>: </p>
-    <input type="email" class="form-control" id="Email1" name="mod_email" value="<%# Eval("mod_email") %>" required>
+    <input type="email" class="form-control" id="Email1" name="mod_email" value="<%# Eval("mod_email") %>" pattern="\b[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}\b" title="Valid email address" required>
   </div>
        </div><!-- .col-md-12-->
     </div><!-- .row -->
@@ -65,8 +65,8 @@
         </asp:repeater>
       </div>
     </div><!-- .row -->
-  <asp:button runat="server" text="Submit" ID="submit" OnClick="Unnamed1_Click"  ></asp:button>
-  <asp:button runat="server" text="Undo Changes" ID="undo_changes" OnClick="Unnamed2_Click"  ></asp:button>
+  <asp:button runat="server" text="Submit" ID="submit" OnClick="Unnamed1_Click" CssClass="btn btn-primary" ></asp:button>
+  <asp:button runat="server" text="Undo Changes" ID="undo_changes" CssClass="btn btn-primary" PostBackUrl="~/admin/edit-profile.aspx"></asp:button>
     <p><asp:Label ID="change_submit" runat="server" /></p>
 </form>
 </asp:Content>
