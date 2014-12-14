@@ -15,7 +15,6 @@
             <asp:ValidationSummary ID="ValidationSummary1" runat="server" CssClass="alert alert-danger" DisplayMode="List" />
     <asp:FormView ID="FormView1" runat="server" DataKeyNames="tag_id_PK" DataSourceID="ods_create_tags" BorderStyle="None">
         <EditItemTemplate>
-            <asp:Label ID="tag_id_PKLabel1" runat="server" Text='<%# Eval("tag_id_PK") %>' Visible="False" />
             <br />
            Tag Name:<asp:RequiredFieldValidator ID="tag_name_EditValidator1" runat="server" ErrorMessage="Tag Name is a Required Field" ControlToValidate="tag_nameTextBox" Visible="True" Text="*"></asp:RequiredFieldValidator>
             <asp:TextBox ID="tag_nameTextBox" runat="server" Text='<%# Bind("tag_name") %>' ControlStyle-CssClass="form-control" />
@@ -29,8 +28,8 @@
             <asp:TextBox ID="tag_bgTextBox" runat="server" Text='<%# Bind("tag_bg") %>' ControlStyle-CssClass="form-control"/>
 
             <br />
-            <asp:LinkButton ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Update" class="btn btn-primary"/>
-            &nbsp;<asp:LinkButton ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" class="btn btn-primary"/>
+            <asp:LinkButton ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Update" class="btn btn-primary" PostBackUrl="tag.aspx" />
+            &nbsp;<asp:LinkButton ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" class="btn btn-primary" PostBackUrl="tag.aspx" />
         </EditItemTemplate>
         <InsertItemTemplate>
             Tag Name:<asp:RequiredFieldValidator ID="tag_name_InsertValidator1" runat="server" ErrorMessage="Tag Name is a Required Field" Text="*" Visible="true" ControlToValidate="tag_nameTextBox"></asp:RequiredFieldValidator>
@@ -75,7 +74,7 @@
             <asp:Parameter Name="tag_name" Type="String" />
             <asp:Parameter Name="tag_color" Type="String" />
             <asp:Parameter Name="tag_bg" Type="String" />
-            <asp:Parameter Name="Original_tag_id_PK" Type="Int32" />
+
         </UpdateParameters>
     </asp:ObjectDataSource>
     </div>

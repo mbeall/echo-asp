@@ -11,10 +11,17 @@ public partial class template : System.Web.UI.MasterPage
     {
       HyperLink1.Text = "Login";
       HyperLink1.NavigateUrl = "~/login.aspx";
+      HyperLink2.Text = "Submit Ticket";
+      HyperLink2.NavigateUrl = "~/ticket.aspx";
+      HyperLink3.Visible = false;
       if (HttpContext.Current.User.Identity.IsAuthenticated)
       {
       HyperLink1.Text = "Welcome, Logout";
       HyperLink1.NavigateUrl = "~/logout.aspx";
+      HyperLink2.NavigateUrl = "~/admin/ticket.aspx";
+      HyperLink3.Text = "My Profile";
+      HyperLink3.Visible = true;
+      HyperLink3.NavigateUrl = "~/admin/edit-profile.aspx";
       }
     }
 }
