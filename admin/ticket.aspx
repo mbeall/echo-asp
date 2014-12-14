@@ -20,7 +20,6 @@
         <asp:parameter name="tkt_created" type="DateTime" />
         <asp:parameter name="tkt_priority" type="String" />
         <asp:parameter name="tkt_status" type="String" />
-        <asp:sessionparameter name="mod_id_FK" sessionfield="mod_id" type="Int32" />
         <asp:parameter name="Original_tkt_id_PK" type="Int32" />
       </updateparameters>
     </asp:objectdatasource>
@@ -68,8 +67,6 @@
                 <asp:ListItem Value="review">Under Review</asp:ListItem>
         </asp:dropdownlist>
         </div>
-
-        <asp:label id="mod_id_FK" runat="server" text='<%# Session["mod_id"] %>' visible="False" />
         <br />
 
         <asp:linkbutton id="UpdateButton" runat="server" causesvalidation="True" commandname="Update" text="Update" cssclass="btn btn-primary" />
@@ -108,8 +105,6 @@
                 <asp:ListItem Value="review">Under Review</asp:ListItem>
         </asp:dropdownlist>
         </div>
-
-        <asp:label id="mod_id_FK" runat="server" text='<%# Session["mod_id"] %>' visible="False" />
         <br />
 
         <asp:linkbutton id="UpdateButton" runat="server" causesvalidation="True" commandname="Update" text="Update" cssclass="btn btn-primary" />
