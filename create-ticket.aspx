@@ -7,36 +7,36 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="entry_title" Runat="Server">Create Ticket
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="entry_content" Runat="Server">
-<%--<form class="col-xs-6" action="create-ticket.php" method="post" name="create_ticket_moderator" id="create_ticket_moderator">
+  
+<form id="create_ticket_moderator" class="col-xs-6" runat="server" name="create_ticket_moderator" >
   <input type="hidden" name="tkt_id_PK" value="">
 
   <div class="form-group">
     <label for="tkt_name">Ticket Name</label>
     <input class="form-control" type="text" name="tkt_name" id="tkt_name" maxlength="45">
   </div>
-
-  <?php if (is_logged_in()) { ?>
-
-    <div class="form-group">
-      <label for="tkt_priority">Ticket Priority</label>
+  
+  <asp:LoginView ID="LoginView1" runat="server">
+    <LoggedInTemplate>
+     <label for="tkt_priority">Ticket Priority</label> 
       <select class="form-control" name="tkt_priority">
         <option value="high">High</option>
         <option value="normal" selected>Normal</option>
         <option value="low">Low</option>
       </select>
-    </div>
-
-  <?php } ?>
-
+      </LoggedInTemplate>
+      </asp:LoginView>
+ 
+  
   <div class="form-group">
     <label for="tkt_desc">Description</label>
     <textarea class="form-control" name="tkt_desc"></textarea>
   </div>
 
   <p>
-    <input class="btn btn-primary" type="submit" value="Submit">
-    <a class="btn btn-default" href="index.php">Cancel</a>
+    <asp:Button ID="Button1" runat="server" Text="Submit" />
+    <asp:LinkButton ID="LinkButton1" runat="server" Text="Cancel" PostBackUrl="~/index.aspx">Cancel</asp:LinkButton>
   </p>
-</form>--%>
+</form>
 </asp:Content>
 
