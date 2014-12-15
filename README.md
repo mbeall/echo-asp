@@ -1,4 +1,4 @@
-Echo (ASP) 0.3.1
+Echo (ASP) 0.3.2
 ===
 
 The ASP code for the ASP version of the project
