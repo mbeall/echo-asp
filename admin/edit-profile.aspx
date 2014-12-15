@@ -12,6 +12,7 @@
   <div class="col-md-6">
     <div class="form-group">
       <asp:ValidationSummary ID="profile_Validation_Summary" runat="server" CssClass="alert alert-danger" DisplayMode="List" />
+    <asp:panel id="p_success" runat="server" cssclass="alert alert-success" visible="false"><strong>Profile saved.</strong></asp:panel>
       <asp:objectdatasource id="ods_profile" runat="server" oldvaluesparameterformatstring="original_{0}" selectmethod="get_moderator" typename="TicketDBTableAdapters.moderatorsTableAdapter" UpdateMethod="update_moderator">
       <selectparameters>
         <asp:sessionparameter name="mod_id" sessionfield="mod_id" type="Int32" />
@@ -25,7 +26,7 @@
               <asp:Parameter Name="Original_mod_id_PK" Type="Int32" />
           </UpdateParameters>
     </asp:objectdatasource>
-  <asp:FormView ID="profile_Form_View" runat="server" DataKeyNames="mod_id_PK" DataSourceID="ods_profile" BorderStyle="None" DefaultMode="Edit">
+  <asp:FormView ID="fv_edit_profile" runat="server" DataKeyNames="mod_id_PK" DataSourceID="ods_profile" BorderStyle="None" DefaultMode="Edit" onitemupdated="fv_edit_profile_success">
         <EditItemTemplate>
           <br />
             UserName:
@@ -42,8 +43,7 @@
             <asp:TextBox ID="Email1" runat="server"  CssClass="form-control" Text='<%# Bind("mod_email") %>' /><asp:RequiredFieldValidator ID="email_required_field_validator" runat="server" ErrorMessage="Email is a Required Field" Text="*" ControlToValidate="Email1"></asp:RequiredFieldValidator><asp:RegularExpressionValidator ID="email_edit_validator" runat="server" ErrorMessage="Please make sure your email is in the correct format. Ex.someone@xxx.xxx" ValidationExpression='\b[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}\b' ControlToValidate ="Email1" Visible="True" Text="*"></asp:RegularExpressionValidator>
           <br />
 
-            <asp:LinkButton ID="Done" runat="server" Text="Done" PostBackUrl="~/index.aspx" CssClass="btn btn-primary"> </asp:LinkButton>
-          &nbsp;<asp:LinkButton ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Update" class="btn btn-default"/>
+            <asp:LinkButton ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Update" class="btn btn-primary"/>
             &nbsp;<asp:LinkButton ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" class="btn btn-default"/>
 
 </EditItemTemplate>
