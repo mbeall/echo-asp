@@ -9,38 +9,35 @@
 <asp:Content ID="Content4" ContentPlaceHolderID="entry_content" Runat="Server">
   <form runat="server">
        <div class="row">
-        <div class="col-md-2">
+       <div class="form-inline">
+        <div class="form-group">
         <asp:TextBox ID="search_TextBox" runat="server" CssClass="form-control" TextMode="Search" ToolTip="Search"></asp:TextBox>
          </div>
-         <div class="col-md-2">
+          <asp:hyperlink ID="browse_bytagButton" class="btn btn-default" runat="server" Text="Browse By Tags" navigateurl="~/admin/browse-by-tag.aspx" />
+         <div class="form-group">
          <asp:DropDownList ID="priority_DropDown" runat="server" CssClass="form-control">
             <asp:ListItem>Low</asp:ListItem>
             <asp:ListItem>Normal</asp:ListItem>
             <asp:ListItem>High</asp:ListItem>
           </asp:DropDownList>
          </div>
-         <div class="col-md-2">
+         <div class="form-group">
           <asp:DropDownList ID="status_DropDown" runat="server" CssClass="form-control">
             <asp:ListItem>Open</asp:ListItem>
             <asp:ListItem>Closed</asp:ListItem>
             <asp:ListItem>Review</asp:ListItem>
           </asp:DropDownList>
           </div>
-          <div class="col-md-1">
-            <asp:Button ID="filter_button" runat="server" Text="Filter" class="btn btn-primary" /> </div>
-           <div class="col-md-1">
-              <asp:Button ID="browse_bytagButton" class="btn btn-primary" runat="server" Text="Browse By Tags" PostbackURL="browsebytag.aspx"/>
+          <asp:Button ID="filter_button" runat="server" Text="Filter" class="btn btn-primary" />
           </div>
-           <div class="col-md-2">
             <asp:Repeater ID="results_Repeater2" DataSourceID="sds_count" runat="server">
            <ItemTemplate>
-               <asp:Label ID="results_label" runat="server" CssClass="small-text muted" controlstyle-CssClass="right-float"  Text='<%# String.Format("{0} results", Eval("count")) %>' Font-Size="Small"></asp:Label>
+               <asp:Label ID="results_label" runat="server" CssClass="small-text muted" style="float:right;" Text='<%# String.Format("{0} results", Eval("count")) %>' Font-Size="Small"></asp:Label>
            </ItemTemplate>
         </asp:Repeater>
-               </div>
-        </div><!---Row--->
+        </div>
 
-       
+
 
         <br />
         <br />

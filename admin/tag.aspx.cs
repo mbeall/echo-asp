@@ -13,24 +13,29 @@ public partial class tag : System.Web.UI.Page
       if (String.IsNullOrEmpty(Request.QueryString["tag_id_pk"]) )
       {
 
-      FormView1.DefaultMode = (FormViewMode.Insert); }
+      fv_tag.DefaultMode = (FormViewMode.Insert); }
       else
       {
-      FormView1.DefaultMode = (FormViewMode.Edit); }
+      fv_tag.DefaultMode = (FormViewMode.Edit); }
 
       }
+    protected void fv_tag_updated( object sender, FormViewUpdatedEventArgs e ) {
+      if (IsValid) {
+        p_success.Visible = true;
       }
+    }
+}
 //public class tag : Control, IPostBackEventHandler
-//{ 
+//{
 //    public event EventHandler Click;
-    
+
 //        protected virtual void OnClick(EventArgs e)
 //        {
 //            if (Click != null)
 //            {
 //                Click(this, e);
 //            }
-      
+
 //        }
 //        public void RaisePostBackEvent(String eventArgument)
 //        {

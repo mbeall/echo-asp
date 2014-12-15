@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/template.master" AutoEventWireup="true" CodeFile="browsebytag.aspx.cs" Inherits="browsebytag" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/template.master" AutoEventWireup="true" CodeFile="browse-by-tag.aspx.cs" Inherits="browsebytag" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head_title" Runat="Server">
 </asp:Content>
@@ -9,40 +9,37 @@
 <asp:Content ID="Content4" ContentPlaceHolderID="entry_content" Runat="Server">
     <form id="Form1" runat="server">
        <div class="row">
-        <div class="col-md-2">
+        <div class="form-inline">
+        <div class="form-group">
         <asp:TextBox ID="search_TextBox1" runat="server" CssClass="form-control" TextMode="Search" ToolTip="Search" MaxLength="45"></asp:TextBox>
          </div>
-         <div class="col-md-2">
+           <div class="form-group">
+         <asp:DropDownList ID="tag_nameDropDown1" CssClass="form-control" runat="server" DataSourceID="ods_tags" DataTextField="tag_name" DataValueField="tag_id_PK">
+          </asp:DropDownList>
+            <asp:ObjectDataSource ID="ods_tags" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="TicketDBTableAdapters.tagsTableAdapter">
+            </asp:ObjectDataSource>
+         </div>
+         <div class="form-group">
          <asp:DropDownList ID="priority_DropDown1" runat="server" CssClass="form-control">
             <asp:ListItem>Low</asp:ListItem>
             <asp:ListItem>Normal</asp:ListItem>
             <asp:ListItem>High</asp:ListItem>
           </asp:DropDownList>
          </div>
-         <div class="col-md-2">
+         <div class="form-group">
           <asp:DropDownList ID="status_DropDown1" runat="server" CssClass="form-control">
             <asp:ListItem>Open</asp:ListItem>
             <asp:ListItem>Closed</asp:ListItem>
             <asp:ListItem>Review</asp:ListItem>
           </asp:DropDownList>
           </div>
-           <div class="col-md-2">
-         <asp:DropDownList ID="tag_nameDropDown1" CssClass="form-control" runat="server" DataSourceID="ods_tags" DataTextField="tag_name" DataValueField="tag_id_PK">
-          </asp:DropDownList>
-            <asp:ObjectDataSource ID="ods_tags" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="TicketDBTableAdapters.tagsTableAdapter">
-            </asp:ObjectDataSource>
-         </div>
-          <div class="col-md-1">
             <asp:Button ID="filter_button" runat="server" Text="Filter" class="btn btn-primary" />
-            <br />
-          </div>
-           <div class="col-md-2">
+               </div><!-- .form-inline -->
            <asp:Repeater ID="results_repeater" runat="server" DataSourceID="sds_count">
                <ItemTemplate>
-                   <asp:Label ID="results_label" runat="server" Text='<%# String.Format("{0} results", Eval("count")) %>' Font-Size="Small"></asp:Label>
+                   <asp:Label ID="results_label" runat="server" Text='<%# String.Format("{0} results", Eval("count")) %>' Font-Size="Small" style="float:right;"></asp:Label>
                </ItemTemplate>
            </asp:Repeater>
-               </div>
            <br />
            <br />
            <br />

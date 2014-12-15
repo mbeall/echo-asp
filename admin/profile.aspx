@@ -10,7 +10,7 @@
   <form id="frm_profile" runat="server">
     <asp:objectdatasource id="ods_profile" runat="server" oldvaluesparameterformatstring="original_{0}" selectmethod="get_moderator" typename="TicketDBTableAdapters.moderatorsTableAdapter">
       <selectparameters>
-        <asp:sessionparameter name="mod_id" sessionfield="mod_id" type="Int32" />
+        <asp:querystringparameter name="mod_id" querystringfield="mod_id" type="Int32" />
       </selectparameters>
     </asp:objectdatasource>
     <div class="row">
@@ -22,6 +22,7 @@
             <p><strong>Email</strong>: <asp:label id="mod_email" runat="server" text='<%# Eval("mod_email") %>' /></p>
 
             <p>
+              <asp:Button ID="edit_profile" runat="server" Text="Edit Profile" PostBackUrl="~/admin/edit-profile.aspx" />
               <%--
               <input type="hidden" name="profile" value="1">
               <input class="btn btn-default" type="submit" value="Edit Profile" name="edit-profile">

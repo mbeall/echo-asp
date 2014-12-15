@@ -1,10 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/template.master" AutoEventWireup="true" CodeFile="tag.aspx.cs" Inherits="tag" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head_title" Runat="Server">Create \ Edit Tag
+<asp:Content ID="Content1" ContentPlaceHolderID="head_title" Runat="Server">Create/Edit Tag
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="page_title" Runat="Server">Create \ Edit Tag
+<asp:Content ID="Content2" ContentPlaceHolderID="page_title" Runat="Server">Create/Edit Tag
 </asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="entry_title" Runat="Server">Create \ Edit Tag
+<asp:Content ID="Content3" ContentPlaceHolderID="entry_title" Runat="Server">Create/Edit Tag
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="entry_content" Runat="Server">
     <%--<?php if (is_logged_in()) { ?>--%>
@@ -12,9 +12,10 @@
 <Form runat="server">
     <div class="col-md-6">
         <div class="form-group">
-            <asp:ValidationSummary ID="ValidationSummary1" runat="server" CssClass="alert alert-danger" DisplayMode="List" /><div class="alert alter-success">
-            <asp:Label ID="success_label" runat="server" Text="Your tag has been added to the database" Visible="False"></asp:Label></div>
-    <asp:FormView ID="FormView1" runat="server" DataKeyNames="tag_id_PK" DataSourceID="ods_create_tags" BorderStyle="None">
+            <asp:ValidationSummary ID="ValidationSummary1" runat="server" CssClass="alert alert-danger" DisplayMode="List" />
+
+    <asp:panel id="p_success" runat="server" cssclass="alert alert-success" visible="false"><strong>Tag saved.</strong></asp:panel>
+    <asp:FormView ID="fv_tag" runat="server" DataKeyNames="tag_id_PK" DataSourceID="ods_create_tags" BorderStyle="None" onitemupdated="fv_tag_updated">
         <EditItemTemplate>
             <br />
            Tag Name:<asp:RequiredFieldValidator ID="tag_name_EditValidator1" runat="server" ErrorMessage="Tag Name is a Required Field" ControlToValidate="tag_nameTextBox" Visible="True" Text="*"></asp:RequiredFieldValidator>
