@@ -13,7 +13,7 @@
     <div class="col-md-6">
         <div class="form-group">
             <asp:ValidationSummary ID="ValidationSummary1" runat="server" CssClass="alert alert-danger" DisplayMode="List" />
-            
+
     <asp:panel id="p_success" runat="server" cssclass="alert alert-success" visible="false"><strong>Tag saved.</strong></asp:panel>
     <asp:FormView ID="fv_tag" runat="server" DataKeyNames="tag_id_PK" DataSourceID="ods_create_tags" BorderStyle="None" onitemupdated="fv_tag_updated">
         <EditItemTemplate>

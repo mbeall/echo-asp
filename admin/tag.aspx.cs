@@ -26,16 +26,16 @@ public partial class tag : System.Web.UI.Page
     }
 }
 //public class tag : Control, IPostBackEventHandler
-//{ 
+//{
 //    public event EventHandler Click;
-    
+
 //        protected virtual void OnClick(EventArgs e)
 //        {
 //            if (Click != null)
 //            {
 //                Click(this, e);
 //            }
-      
+
 //        }
 //        public void RaisePostBackEvent(String eventArgument)
 //        {
