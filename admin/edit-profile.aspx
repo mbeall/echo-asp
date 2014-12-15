@@ -29,7 +29,7 @@
         <EditItemTemplate>
           <br />
             UserName:
-           <asp:TextBox ID="mod_login_nameTextBox" runat="server" CssClass="form-control" Text='<%# Bind("mod_login_name") %>' ReadOnly="True" /> 
+           <asp:TextBox ID="mod_login_nameTextBox" runat="server" CssClass="form-control" Text='<%# Bind("mod_login_name") %>' ReadOnly="True" />
           <br />
             Password: <asp:TextBox ID="mod_passTextBox" runat="server"  CssClass="form-control" Text='<%# Bind("mod_pass") %>'></asp:TextBox>
           <br />
@@ -41,14 +41,14 @@
             Email:
             <asp:TextBox ID="Email1" runat="server"  CssClass="form-control" Text='<%# Bind("mod_email") %>' /><asp:RequiredFieldValidator ID="email_required_field_validator" runat="server" ErrorMessage="Email is a Required Field" Text="*" ControlToValidate="Email1"></asp:RequiredFieldValidator><asp:RegularExpressionValidator ID="email_edit_validator" runat="server" ErrorMessage="Please make sure your email is in the correct format. Ex.someone@xxx.xxx" ValidationExpression='\b[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}\b' ControlToValidate ="Email1" Visible="True" Text="*"></asp:RegularExpressionValidator>
           <br />
-         
+
             <asp:LinkButton ID="Done" runat="server" Text="Done" PostBackUrl="~/index.aspx" CssClass="btn btn-primary"> </asp:LinkButton>
           &nbsp;<asp:LinkButton ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Update" class="btn btn-default"/>
             &nbsp;<asp:LinkButton ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" class="btn btn-default"/>
-          
+
 </EditItemTemplate>
-   
-    
+
+
           <InsertItemTemplate>
               mod_login_name:
               <asp:TextBox ID="mod_login_nameTextBox" runat="server" CssClass="form-control" Text='<%# Bind("mod_login_name") %>' ReadOnly="True" />
@@ -86,19 +86,19 @@
             <asp:Label ID="Email1" runat="server" CssClass="form-control"  Text='<%# Bind("mod_email") %>' /><asp:RequiredFieldValidator ID="email_required_field_validator" runat="server" ErrorMessage="Email is a Required Field" Text="*" ControlToValidate="Email1"></asp:RequiredFieldValidator><asp:RegularExpressionValidator ID="email_edit_validator" runat="server" ErrorMessage="Please make sure your email is in the correct format. Ex.someone@xxx.xxx" ValidationExpression='\b[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}\b' ControlToValidate ="Email1" Visible="True" Text="*"></asp:RegularExpressionValidator>
             <br />
         </ItemTemplate>
-   
-    
+
+
           </asp:FormView>
       <div class="col-md-6">
         <br />
 
             &nbsp;
         </div>
-      
+
           </div>
-    
+
     </div>
-  <p><asp:Label ID="change_submit" runat="server" /></p> 
+  <p><asp:Label ID="change_submit" runat="server" /></p>
 </form>
 </asp:Content>
 
