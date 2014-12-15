@@ -10,7 +10,7 @@
   <form id="frm_login" runat="server">
     <div class="row">
       <div class="col-xs-6">
-        <asp:login id="login_login" runat="server" displayrememberme="False" failuretext="Invalid credentials." onauthenticate="login_login_Authenticate"></asp:login>
+        <asp:login id="login_login" runat="server" displayrememberme="False" failuretext="Invalid credentials." onauthenticate="login_login_Authenticate" LoginButtonStyle-CssClass="btn btn-primary"></asp:login>
       </div>
     </div><!-- .row -->
   </form>
