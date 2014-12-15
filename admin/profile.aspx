@@ -22,6 +22,7 @@
             <p><strong>Email</strong>: <asp:label id="mod_email" runat="server" text='<%# Eval("mod_email") %>' /></p>
 
             <p>
+              <asp:Button ID="edit_profile" runat="server" Text="Edit Profile" PostBackUrl="~/admin/edit-profile.aspx" />
               <%--
               <input type="hidden" name="profile" value="1">
               <input class="btn btn-default" type="submit" value="Edit Profile" name="edit-profile">
