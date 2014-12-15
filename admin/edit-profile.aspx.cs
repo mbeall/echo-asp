@@ -13,6 +13,12 @@ public partial class edit_profile : System.Web.UI.Page
 
   }
 
+  protected void fv_edit_profile_success( object sender, FormViewUpdatedEventArgs e ) {
+    if ( IsValid ) {
+      p_success.Visible = true;
+    }
+  }
+
 }
 
 
