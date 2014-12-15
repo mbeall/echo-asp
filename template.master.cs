@@ -21,7 +21,7 @@ public partial class template : System.Web.UI.MasterPage
       HyperLink2.NavigateUrl = "~/admin/ticket.aspx";
       HyperLink3.Text = "My Profile";
       HyperLink3.Visible = true;
-      HyperLink3.NavigateUrl = "~/admin/edit-profile.aspx";
+      HyperLink3.NavigateUrl = "~/admin/profile.aspx";
       }
     }
 }
