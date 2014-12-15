@@ -9,7 +9,8 @@
 <asp:content ID="Content4" ContentPlaceHolderID="entry_content" Runat="Server">
   <form id="frm_edit_ticket" runat="server">
   <div class="row">
-
+    <asp:validationsummary id="vs_edit_ticket" runat="server" displaymode="List" cssclass="alert alert-danger" />
+    <asp:panel id="p_success" runat="server" cssclass="alert alert-success" visible="false"><strong>Ticket saved.</strong></asp:panel>
     <asp:objectdatasource id="ods_edit_ticket" runat="server" oldvaluesparameterformatstring="original_{0}" selectmethod="get_ticket" typename="TicketDBTableAdapters.ticketsTableAdapter" updatemethod="Update">
       <selectparameters>
         <asp:querystringparameter name="tkt_id_PK" querystringfield="tkt_id" type="Int32" />
@@ -38,11 +39,12 @@
       </selectparameters>
     </asp:objectdatasource>
     <div class="col-xs-6">
-    <asp:formview id="fv_edit_ticket" runat="server" datakeynames="tkt_id_PK" datasourceid="ods_edit_ticket" defaultmode="Edit">
+    <asp:formview id="fv_edit_ticket" runat="server" datakeynames="tkt_id_PK" datasourceid="ods_edit_ticket" defaultmode="Edit" onitemupdated="fv_edit_ticket_success">
       <edititemtemplate>
         <div class="form-group">
-        <label for="tkt_name">Name</label>
-        <asp:textbox id="tkt_name" runat="server" text='<%# Bind("tkt_name") %>' cssclass="form-control" />
+        <label for="tkt_name">Name
+        <asp:requiredfieldvalidator id="rfv_tkt_name" runat="server" text="*" errormessage="Ticket Name is required" controltovalidate="tkt_name"></asp:requiredfieldvalidator></label>
+        <asp:textbox id="tkt_name" runat="server" text='<%# Bind("tkt_name") %>' cssclass="form-control" maxlength="32" />
         </div>
 
         <div class="form-group">
@@ -51,8 +53,9 @@
         </div>
 
         <div class="form-group">
-        <label for="tkt_desc">Description</label>
-        <asp:textbox id="tkt_desc" runat="server" text='<%# Bind("tkt_desc") %>' cssclass="form-control" />
+        <label for="tkt_desc">Description
+        <asp:requiredfieldvalidator id="rfv_tkt_desc" runat="server" text="*" errormessage="Ticket Description is required." controltovalidate="tkt_desc"></asp:requiredfieldvalidator></label>
+        <asp:textbox id="tkt_desc" runat="server" text='<%# Bind("tkt_desc") %>' cssclass="form-control" textmode="MultiLine" />
         </div>
 
         <div class="form-group">
@@ -74,7 +77,7 @@
         </div>
         <br />
 
-        <asp:linkbutton id="UpdateButton" runat="server" causesvalidation="True" commandname="Update" text="Update" cssclass="btn btn-primary" />
+        <asp:linkbutton id="btn_update_ticket" runat="server" causesvalidation="True" commandname="Update" text="Update" cssclass="btn btn-primary" />
         &nbsp;<asp:linkbutton id="UpdateCancelButton" runat="server" causesvalidation="False" commandname="Cancel" text="Cancel" cssclass="btn btn-default" />
       </edititemtemplate>
       <itemtemplate>
@@ -139,6 +142,11 @@
         <columns>
           <asp:boundfield datafield="th_modified" dataformatstring="{0:d}" headertext="Date" sortexpression="th_modified" />
           <asp:boundfield datafield="th_summary" headertext="Changes" sortexpression="th_summary" />
+          <asp:templatefield headertext="User">
+            <itemtemplate>
+              <asp:hyperlink id="hl_mod_login_name" runat="server" text='<%# Bind("mod_login_name") %>' navigateurl='<%# String.Format("~/admin/profile.aspx?mod_id={0}",Eval("mod_id_FK")) %>'></asp:hyperlink>
+            </itemtemplate>
+          </asp:templatefield>
         </columns>
         <headerstyle borderstyle="None" />
         <rowstyle borderstyle="None" />

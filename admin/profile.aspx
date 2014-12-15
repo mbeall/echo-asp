@@ -10,7 +10,7 @@
   <form id="frm_profile" runat="server">
     <asp:objectdatasource id="ods_profile" runat="server" oldvaluesparameterformatstring="original_{0}" selectmethod="get_moderator" typename="TicketDBTableAdapters.moderatorsTableAdapter">
       <selectparameters>
-        <asp:sessionparameter name="mod_id" sessionfield="mod_id" type="Int32" />
+        <asp:querystringparameter name="mod_id" querystringfield="mod_id" type="Int32" />
       </selectparameters>
     </asp:objectdatasource>
     <div class="row">
