@@ -32,6 +32,11 @@
         <asp:querystringparameter name="tkt_id" querystringfield="tkt_id" type="Int32" />
       </selectparameters>
     </asp:objectdatasource>
+    <asp:objectdatasource id="ods_ticket_history" runat="server" oldvaluesparameterformatstring="original_{0}" selectmethod="get_ticket_history" typename="TicketDBTableAdapters.the_ticket_historyTableAdapter">
+      <selectparameters>
+        <asp:querystringparameter querystringfield="tkt_id" name="tkt_id" type="Int32"></asp:querystringparameter>
+      </selectparameters>
+    </asp:objectdatasource>
     <div class="col-xs-6">
     <asp:formview id="fv_edit_ticket" runat="server" datakeynames="tkt_id_PK" datasourceid="ods_edit_ticket" defaultmode="Edit">
       <edititemtemplate>
@@ -129,7 +134,15 @@
         </div>
         </itemtemplate>
       </asp:repeater>
-
+      <div class="clearfix" style="min-height:100px;"></div>
+      <asp:gridview id="gv_ticket_history" runat="server" autogeneratecolumns="False" datakeynames="th_id_PK" datasourceid="ods_ticket_history" cssclass="table" borderstyle="None">
+        <columns>
+          <asp:boundfield datafield="th_modified" dataformatstring="{0:d}" headertext="Date" sortexpression="th_modified" />
+          <asp:boundfield datafield="th_summary" headertext="Changes" sortexpression="th_summary" />
+        </columns>
+        <headerstyle borderstyle="None" />
+        <rowstyle borderstyle="None" />
+      </asp:gridview>
     </div>
     </div><!-- .row -->
   </form>
