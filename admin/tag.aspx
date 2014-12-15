@@ -12,7 +12,8 @@
 <Form runat="server">
     <div class="col-md-6">
         <div class="form-group">
-            <asp:ValidationSummary ID="ValidationSummary1" runat="server" CssClass="alert alert-danger" DisplayMode="List" />
+            <asp:ValidationSummary ID="ValidationSummary1" runat="server" CssClass="alert alert-danger" DisplayMode="List" /><div class="alert alter-success">
+            <asp:Label ID="success_label" runat="server" Text="Your tag has been added to the database" Visible="False"></asp:Label></div>
     <asp:FormView ID="FormView1" runat="server" DataKeyNames="tag_id_PK" DataSourceID="ods_create_tags" BorderStyle="None">
         <EditItemTemplate>
             <br />
@@ -28,7 +29,8 @@
             <asp:TextBox ID="tag_bgTextBox" runat="server" Text='<%# Bind("tag_bg") %>' ControlStyle-CssClass="form-control"/>
 
             <br />
-            <asp:LinkButton ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Update" class="btn btn-primary" PostBackUrl="tag.aspx" />
+            <div></div>
+            <asp:LinkButton ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Update" class="btn btn-primary" PostBackUrl="tag.aspx"  />
             &nbsp;<asp:LinkButton ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" class="btn btn-primary" PostBackUrl="tag.aspx" />
         </EditItemTemplate>
         <InsertItemTemplate>

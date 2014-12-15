@@ -11,17 +11,18 @@ public partial class ticket : System.Web.UI.Page
     {
       priority.Visible = false;
     }
-    protected void Button1_Click(object sender, EventArgs e)
+    
+    protected void Submit_Click(object sender, EventArgs e)
     {
       if (String.IsNullOrEmpty(Request.QueryString["tkt_id_pk"]))
       {
-
         //ticket_name.DefaultMode = (FormViewMode.Insert);
       }
       else
       {
-       // description.DefaultMode = (FormViewMode.Edit);
-        TextBox1.Text = "Thank you for submitting a ticket.";
+        // description.DefaultMode = (FormViewMode.Edit);
+        Confirmation.Visible = true;
+        Confirmation.Text = "Thank you for submitting a ticket.";
       }
     }
 }

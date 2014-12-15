@@ -27,16 +27,27 @@
           </asp:DropDownList>
           </div>
           <div class="col-md-1">
-            <asp:Button ID="filter_button" runat="server" Text="Filter" class="btn btn-primary" />
+            <asp:Button ID="filter_button" runat="server" Text="Filter" class="btn btn-primary" /> </div>
+           <div class="col-md-1">
+              <asp:Button ID="browse_bytagButton" class="btn btn-primary" runat="server" Text="Browse By Tags" PostbackURL="browsebytag.aspx"/>
           </div>
+           <div class="col-md-2">
+            <asp:Repeater ID="results_Repeater2" DataSourceID="sds_count" runat="server">
+           <ItemTemplate>
+               <asp:Label ID="results_label" runat="server" CssClass="small-text muted" controlstyle-CssClass="right-float"  Text='<%# String.Format("{0} results", Eval("count")) %>' Font-Size="Small"></asp:Label>
+           </ItemTemplate>
+        </asp:Repeater>
+               </div>
         </div><!---Row--->
+
+       
 
         <br />
         <br />
 
         <asp:Repeater ID="Repeater1" runat="server" DataSourceID="ods_get_tickets">
         <ItemTemplate>
-          <asp:HyperLink ID="tkt_nameHyperlink" runat="server" Text='<%# Eval("tkt_name") %>' NavigateUrl='<%# Eval("tkt_id_PK","~/admin/ticket.aspx?tkt_id={0}")%>'> </asp:HyperLink>
+          <asp:HyperLink ID="tkt_nameHyperlink" runat="server" ControlStyle-CssClass="entry-header h1" Text='<%# Eval("tkt_name") %>' NavigateUrl='<%# Eval("tkt_id_PK","~/admin/ticket.aspx?tkt_id={0}")%>'> </asp:HyperLink>
          <br />
           <asp:Label ID="tkt_details" runat="server" Text='<%# Eval("tkt_desc") %>'></asp:Label><br />
          <%-- <asp:Label ID="tag_nameLabel" runat="server" Text='<%# Eval("tag_name") %>'></asp:Label>--%>
@@ -54,6 +65,17 @@
       <asp:ControlParameter ControlID="status_DropDown" Name="tkt_status" PropertyName="Text" Type="String" />
     </SelectParameters>
         </asp:ObjectDataSource>
+         <asp:sqlDataSource ID="sds_count" runat="server" ConnectionString="<%$ ConnectionStrings:TicketDBConnectionString %>" SelectCommand="SELECT COUNT(*) AS [count]
+  FROM [TicketDB].[dbo].[tickets]
+  WHERE ( (tkt_name LIKE '%' + ISNULL(@text,'%') + '%') OR (tkt_desc LIKE '%' + ISNULL(@text,'%') + '%') )
+    AND (tkt_priority LIKE '%' + ISNULL(@tkt_priority,'%') + '%')
+    AND (tkt_status LIKE '%' + ISNULL(@tkt_status,'open') + '%')">
+             <SelectParameters>
+                 <asp:ControlParameter ControlID="search_TextBox" Name="text" PropertyName="Text" />
+                 <asp:ControlParameter ControlID="priority_DropDown" Name="tkt_priority" PropertyName="SelectedValue" />
+                 <asp:ControlParameter ControlID="status_DropDown" Name="tkt_status" PropertyName="SelectedValue" />
+             </SelectParameters>
+       </asp:sqlDataSource>
          </form>
 </asp:Content>
 
